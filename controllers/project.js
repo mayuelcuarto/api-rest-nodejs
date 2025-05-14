@@ -1,7 +1,8 @@
 'use strict'
 
-const project = require('../models/project');
 var Project = require('../models/project');
+var path = require('path');
+var fs = require('fs');
 
 var controller = {
     home: function(req, res){
@@ -189,28 +190,36 @@ var controller = {
         var projectId = req.params.id;
         var fileName = 'Imagen no subida...';
 
-        if(req.files){
+        if(req.files && req.files.image){
             var filePath = req.files.image.path;
-            var fileSplit = filePath.split('\\');
-            var fileName = fileSplit[1];
+            var fileName = path.basename(filePath);
+            var fileExt = fileName.split('.').pop();
+            var validExtensions = ['png', 'jpg', 'jpeg', 'gif'];
 
-            Project.findByIdAndUpdate(projectId, { image: fileName }, { new: true })
-            .then(projectUpdated => {
-                if (!projectUpdated) {
-                    return res.status(404).send({ message: 'El proyecto no existe y no se ha asignado la imagen.' });
-                }
+            if(validExtensions.includes(fileExt)){
+                Project.findByIdAndUpdate(projectId, { image: fileName }, { new: true })
+                .then(projectUpdated => {
+                    if (!projectUpdated) {
+                        return res.status(404).send({ message: 'El proyecto no existe y no se ha asignado la imagen.' });
+                    }
 
-                return res.status(200).send({
-                    project: projectUpdated
+                    return res.status(200).send({
+                        project: projectUpdated
+                    });
+                })
+                .catch((error) => {
+                    return res.status(500).send({ message: 'La imagen no se ha subido.' });
                 });
-            })
-            .catch(err => {
-                return res.status(500).send({ message: 'La imagen no se ha subido.' });
-            });
+            }else{
+                fs.unlink(filePath, (err) => {
+                    if (err) {
+                        return res.status(500).send({ message: 'Error al eliminar el archivo no válido.' });
+                    }
+                    return res.status(400).send({ message: 'La extensión no es válida.' });
+                });
+            }
         }else{
-            return res.status(500).send({
-                message: fileName
-            });
+            return res.status(400).send({ message: 'No se ha subido ninguna imagen.' });
         }
     }
 };
