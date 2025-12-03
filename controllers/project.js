@@ -190,14 +190,14 @@ var controller = {
         var projectId = req.params.id;
         var fileName = 'Imagen no subida...';
 
-        if(req.files && req.files.image){
-            var filePath = req.files.image.path;
-            var fileName = path.basename(filePath);
-            var fileExt = fileName.split('.').pop();
-            var validExtensions = ['png', 'jpg', 'jpeg', 'gif'];
+        if(req.file){
+            var filePath = req.file.path;
+            var fileSplit = req.file.originalname.split('.');
+            var fileExt = fileSplit[1].toLowerCase();
+            var validExtensions = ['png', 'jpg', 'jpeg', 'gif']; // Extensiones en minúscula
 
             if(validExtensions.includes(fileExt)){
-                Project.findByIdAndUpdate(projectId, { image: fileName }, { new: true })
+                Project.findByIdAndUpdate(projectId, { image: req.file.filename }, { new: true })
                 .then(projectUpdated => {
                     if (!projectUpdated) {
                         return res.status(404).send({ message: 'El proyecto no existe y no se ha asignado la imagen.' });
