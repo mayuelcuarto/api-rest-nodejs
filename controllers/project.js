@@ -221,6 +221,20 @@ var controller = {
         }else{
             return res.status(400).send({ message: 'No se ha subido ninguna imagen.' });
         }
+    },
+
+    getImageFile: function(req, res){
+        var file = req.params.image;
+        var path_file = './uploads/'+file;
+        fs.stat(path_file, (error) => {
+            if(!error){
+                return res.sendFile(path.resolve(path_file));
+            }else{
+                return res.status(200).send({
+                    message: "No existe la imagen..."
+                });
+            }
+        });
     }
 };
 

@@ -29,5 +29,6 @@ router.put('/project{/:id}', ProjectController.updateProject);
 router.delete('/project{/:id}', ProjectController.deleteProject);
 // La palabra 'image' es el nombre del campo (name="image") en el formulario del frontend
 router.post('/upload-image/:id', upload.single('image'), ProjectController.uploadImage);
+router.get('/get-image/:image', ProjectController.getImageFile);
 
 module.exports = router;
