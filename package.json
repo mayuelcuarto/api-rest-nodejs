@@ -12,13 +12,14 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
-    "mongoose": ">=8.22.1",
-    "multer": ">=2.1.1"
+    "multer": ">=2.1.1",
+    "mongoose": ">=8.22.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
   },
   "overrides": {
-    "qs": ">=6.14.2"
-  }
+    "qs": ">=6.15.2"
+  },
+  "packageManager": "pnpm@11.3.0+sha512.2c403d6594527287672b1f7056343a1f7c3634036a67ffabfcc2b3d7595d843768f8787148d1b57cf7956c90606bbd192857c363af19e96d2d0ec9ec5741d215"
 }
