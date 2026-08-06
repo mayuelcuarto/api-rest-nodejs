@@ -10,12 +10,13 @@
   "author": "Cristhian Mayuri",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^2.2.0",
+    "body-parser": ">=2.3.0",
     "express": "^5.1.0",
     "multer": ">=2.2.0",
-    "mongoose": ">=8.22.1",
+    "mongoose": ">=9.7.2",
     "tmp": ">=0.2.7",
-    "qs": ">=6.15.2"
+    "qs": ">=6.15.2",
+    "brace-expansion": ">=5.0.7"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
