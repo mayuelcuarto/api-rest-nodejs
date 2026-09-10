@@ -12,7 +12,7 @@
   "dependencies": {
     "body-parser": ">=2.3.0",
     "express": "^5.1.0",
-    "multer": ">=2.2.0",
+    "multer": ">=2.3.0",
     "mongoose": ">=9.7.2",
     "tmp": ">=0.2.7",
     "brace-expansion": ">=5.0.9"
