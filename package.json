@@ -12,7 +12,7 @@
   "dependencies": {
     "body-parser": ">=2.3.0",
     "express": "^5.1.0",
-    "multer": ">=2.3.0",
+    "multer": ">=2.4.0",
     "mongoose": ">=9.7.2",
     "tmp": ">=0.2.7",
     "brace-expansion": ">=5.0.9"
@@ -20,5 +20,5 @@
   "devDependencies": {
     "nodemon": "^3.1.9"
   },
-  "packageManager": "pnpm@11.3.0+sha512.2c403d6594527287672b1f7056343a1f7c3634036a67ffabfcc2b3d7595d843768f8787148d1b57cf7956c90606bbd192857c363af19e96d2d0ec9ec5741d215"
+  "packageManager": "pnpm@12.3.4+sha512.961aa41fb077da3a04a441d9f8e15ebc0c96da8ef710b2eb67bf9ee7cb0610eabd48f1fd85f51cffe73846785fa0f87c56a3a872a1d893f8446741b5cce45457"
 }
