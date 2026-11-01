@@ -10,7 +10,7 @@
   "author": "Cristhian Mayuri",
   "license": "MIT",
   "dependencies": {
-    "body-parser": ">=2.3.0",
+    "body-parser": ">=2.4.0",
     "express": "^5.1.0",
     "multer": ">=2.5.0",
     "mongoose": ">=9.7.2"
